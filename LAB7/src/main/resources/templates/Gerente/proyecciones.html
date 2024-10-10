@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{index.html :: header( title = 'Proyecciones')}"></head>
+<body>
+<main>
+    <div class="container px-4 py-5">
+        <nav th:replace="~{index.html :: navbar( active = 'Proyecciones')}"></nav>
+        <h1 class="pb-2 border-bottom">Lista de Proyecciones</h1>
+        <div class="d-flex mt-3 mb-4">
+            <a class="btn btn-primary" th:href="@{'/gerente/nuevo'}">Agregar Proyeccion</a>
+            <a class="btn btn-secondary ms-auto" th:href="@{'/'}">Regresar</a>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Pelicula</th>
+                <th>Sala</th>
+                <th>Fecha y Hora</th>
+                <th>Asientos Disp.</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="proyecciones, info : ${listaProyecciones}">
+                <td th:text="${info.index + 1}"></td>
+                <td th:text="${proyecciones.}"></td>
+                <td th:text="${evento.nombre}"></td>
+                <td th:text="${evento.asisesper}"></td>
+                <td><a class="btn btn-primary"
+                       th:href="@{'/eventos/edit?id=' + ${evento.id}}">Editar</a>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+<script th:replace="~{index.html :: footer-bootstrap}"></script>
+</body>
+</html>
